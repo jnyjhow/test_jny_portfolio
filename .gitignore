@@ -3,3 +3,4 @@ db.sqlite3
 /.idea/
 jny_portfolio/__pycache__/
 website/__pycache__/
+tutorial.txt
