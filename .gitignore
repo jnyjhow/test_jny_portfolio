@@ -3,5 +3,5 @@ db.sqlite3
 /.idea/
 jny_portfolio/__pycache__/
 website/__pycache__/
-/tutorial.rmd
-/logo_III.png
+/media/
+

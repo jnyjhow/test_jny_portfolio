@@ -1,7 +1,10 @@
 from django.shortcuts import render
-
-# Create your views here.
+from website.models import MyApp
 
 
 def index(request):
-    return render(request, 'website/index.html')
+    all_apps = MyApp.objects.all()
+    context = {
+        'my_apps': all_apps
+    }
+    return render(request, 'website/index.html', context)
