@@ -1,1 +1,65 @@
 {% extends 'base.html' %}
+
+{% block content %}
+
+        <!-- Upload File Section-->
+        <section class="page-section mt-5" id="import-form">
+            <div class="container">
+
+                <!-- Contact Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Upload File</h2>
+
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+
+                <!-- Upload File Section Form-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7">
+
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form id="upload-file" name="upload-file" enctype="multipart/form-data" method="POST"
+                              action="{% url 'airpollution:upload_file' %}" data-sb-form-api-token="API_TOKEN">
+                            {% csrf_token %}
+
+                            <!-- Year input -->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="year" type="number" placeholder="Year..." data-sb-validations="required" />
+                                <label for="year">Year</label>
+                                <div class="invalid-feedback" data-sb-feedback="year:required">A year is required.</div>
+                            </div>
+
+                            <!-- File input -->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="file" type="file" placeholder="File" data-sb-validations="required" />
+                                <label for="file">File</label>
+                                <div class="invalid-feedback" data-sb-feedback="file:required">A file is required.</div>
+                            </div>
+
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div id="success">{{ message_success }}</div>
+
+                            <!-- Submit Button-->
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-xl" id="upload" type="submit">Upload</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endblock %}
