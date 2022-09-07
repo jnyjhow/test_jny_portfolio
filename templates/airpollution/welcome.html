@@ -33,14 +33,16 @@
 
                             <!-- Year input -->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="year" type="number" placeholder="Year..." data-sb-validations="required" />
+                                <input class="form-control" id="year" type="number" placeholder="Year..."
+                                       data-sb-validations="required" />
                                 <label for="year">Year</label>
                                 <div class="invalid-feedback" data-sb-feedback="year:required">A year is required.</div>
                             </div>
 
                             <!-- File input -->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="file" type="file" placeholder="File" data-sb-validations="required" />
+                                <textarea class="form-control" id="file" type="file" placeholder="Upload your file here..."
+                                          style="height: 10rem" data-sb-validations="required"></textarea>
                                 <label for="file">File</label>
                                 <div class="invalid-feedback" data-sb-feedback="file:required">A file is required.</div>
                             </div>
@@ -49,12 +51,23 @@
                             <!---->
                             <!-- This is what your users will see when the form-->
                             <!-- has successfully submitted-->
-                            <div id="success">{{ message_success }}</div>
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">File upload successful!</div>
+                                    To check this file, sign up at
+                                    <br />
+                                    <a href="{% url 'website:index' %}">Page Home</a>
+                                </div>
+                            </div>
+
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
 
                             <!-- Submit Button-->
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-xl" id="upload" type="submit">Upload</button>
-                            </div>
+                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Upload</button>
 
                         </form>
                     </div>
