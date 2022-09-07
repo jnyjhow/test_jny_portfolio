@@ -28,33 +28,33 @@
                         <!-- https://startbootstrap.com/solution/contact-forms-->
                         <!-- to get an API token!-->
                         <form id="upload-file" name="upload-file" enctype="multipart/form-data" method="POST"
-                              action="{% url 'airpollution:upload_file' %}" data-sb-form-api-token="API_TOKEN">
+                              action="{% url 'airpollution:airpollution' %}">
                             {% csrf_token %}
 
                             <!-- Year input -->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="year" type="number" placeholder="Year..." data-sb-validations="required" />
-                                <label for="year">Year</label>
-                                <div class="invalid-feedback" data-sb-feedback="year:required">A year is required.</div>
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Year</label>
+                                    <input class="form-control" id="year" name="year" type="number" placeholder="Year"
+                                           required="required" data-validation-required-message=""/>
+                                    <p class="help-block text-danger"></p>
+                                </div>
                             </div>
 
                             <!-- File input -->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="file" type="file" placeholder="File" data-sb-validations="required" />
-                                <label for="file">File</label>
-                                <div class="invalid-feedback" data-sb-feedback="file:required">A file is required.</div>
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>File</label>
+                                    <input class="form-control" id="file" name="file" type="file" required="required"
+                                           data-validation-required-message=""/>
+                                    <p class="help-block text-danger"></p>
+                                </div>
                             </div>
 
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
                             <div id="success">{{ message_success }}</div>
 
                             <!-- Submit Button-->
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-xl" id="upload" type="submit">Upload</button>
-                            </div>
+                            <button class="btn btn-primary btn-xl" id="upload" type="submit">Upload</button>
 
                         </form>
                     </div>

@@ -1,3 +1,5 @@
-#simbolos
+#simbolos (icons)
 https://fontawesome.com/icons/thumbs-up?s=regular&f=classic
 
+#link dataset (airpollution)
+https://www.eea.europa.eu/data-and-maps/data/air-pollutant-concentrations-at-station
