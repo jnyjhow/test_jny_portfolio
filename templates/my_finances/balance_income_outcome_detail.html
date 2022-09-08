@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <h1>{{ detail_what }} {{ object.pk }}</h1>
+        <ul>
+            <li>Date: {{ object.date|date }}</li>
+
+            {% if object.repetition_end %}
+            <li>End: {{ object.repetition_end|date }}</li>
+            {% endif %}
+
+            <li>Type: {{ object.get_type_display }}</li>
+
+            <ul>
+                <li>
+                    Value: ${{ object.value }}
+                </li>
+            </ul>
+
+            {% if detail_what != 'Balance' %}
+            <li>Repetitive: {{ object.repetitive }}</li>
+            {% if object.repetitive %}
+            <ul>
+                <li>
+                    Every: {{ object.repetition_time }} {{ object.get_repetition_interval_display }}
+                </li>
+            </ul>
+            {% endif %}
+            {% endif %}
+        </ul>
+
+        {% if detail_what == 'Income' %}
+        <a href="{% url 'my_finances:income_update' object.pk %}">
+            <button type="button" class="btn btn-info">Update</button>
+        </a>
+        <a href="{% url 'my_finances:income_delete' object.pk %}">
+            <button type="button" class="btn btn-danger">Delete</button>
+        </a>
+
+        {% elif detail_what == 'Outcome' %}
+        <a href="{% url 'my_finances:outcome_update' object.pk %}">
+            <button type="button" class="btn btn-info">Update</button>
+        </a>
+        <a href="{% url 'my_finances:outcome_delete' object.pk %}">
+            <button type="button" class="btn btn-danger">Delete</button>
+        </a>
+
+        {% elif detail_what == 'Balance' %}
+        <a href="{% url 'my_finances:balance_update' object.pk %}">
+            <button type="button" class="btn btn-info">Update</button>
+        </a>
+        <a href="{% url 'my_finances:balance_delete' object.pk %}">
+            <button type="button" class="btn btn-danger">Delete</button>
+        </a>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}
