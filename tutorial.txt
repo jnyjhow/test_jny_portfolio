@@ -3,3 +3,19 @@ https://fontawesome.com/icons/thumbs-up?s=regular&f=classic
 
 #link dataset (airpollution)
 https://www.eea.europa.eu/data-and-maps/data/air-pollutant-concentrations-at-station
+
+#datatable examples
+https://datatables.net/examples/index
+
+#chartjs
+https://www.chartjs.org/docs/latest/samples/information.html
+
+#bootstrap
+https://startbootstrap.com/
+
+#button style
+https://getbootstrap.com.br/docs/4.1/components/buttons/
+
+#obter arquivo requirements
+pip freeze > requirements.txt
+

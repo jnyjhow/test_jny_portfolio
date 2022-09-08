@@ -20,41 +20,37 @@ def get_headers_and_units(ws):
     headers = {}
     units = ''
 
-    # get headers row
+    # Get headers row
     for row in range(ws.max_row + 1):
         cell = ws['A'][row].value
         if isinstance(cell, str) and 'country' in cell.lower():
             headers_row = row
             break
-
     if headers_row is None:
         return None, None, None
 
-    # remember headers' positions
+    # Remember headers' positions
     for i in range(ws.max_column):
         column = chr(i + 65)
         header = ws[column][headers_row].value
-
         if header is None:
             break
-
         header = header.strip().replace('_', '').lower()
 
-        # get units
+        # Get units
         if 'm3' in header:
             units_index = header.find('(') + 1
             for index in range(units_index, units_index + 20):
                 if header[index] == ')':
                     break
                 units += header[index]
-
         elif 'unit' in header:
             units = ws[column][headers_row + 1].value
             continue
 
         units = units if units != 'count' else 'µg/m3'
 
-        # map headers with their indices
+        # Map headers with their indices
         for choice in XLHEADERS.choices:
             if choice in header:
                 headers[choice] = i
