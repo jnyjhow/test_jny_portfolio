@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 // --------------------------------------- JSX ---------------------------------------
 function JSXElement() {
     let some_id = 123;
-    let some_array = ['book', 'title', 'idea', 'marek', 'and', 'two', 'cans', 'of', 'heinz', 'beans']
+    let some_array = ['book', 'title', 'idea', 'jny_jhow', 'and', 'two', 'cans', 'of', 'heinz', 'beans']
     let style_array = ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'dark']
 
     return <React.Fragment>
