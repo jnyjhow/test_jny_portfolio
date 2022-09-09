@@ -222,3 +222,4 @@ ENV/
 node_modules
 
 # End of https://www.gitignore.io/api/macos,linux,django,python,pycharm
+/test_npm/
