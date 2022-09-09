@@ -8,7 +8,9 @@ router = routers.DefaultRouter()
 router.register('pollutant', PollutantViewSet)
 router.register('country', CountryViewSet)
 
-
+# examples
+# http://127.0.0.1:8000/api/airpollution/
+# http://127.0.0.1:8000/api/airpollution/pollutant/
 urlpatterns = [
     path('', include(router.urls)),
     path('v2/country/', country),
