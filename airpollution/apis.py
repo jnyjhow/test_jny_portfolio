@@ -44,6 +44,7 @@ def country_detail(request, pk):
         json_parser = JSONParser()
         data = json_parser.parse(request)
         serializer = CountrySerializer(instance=country_instance, data=data, partial=request.method == 'PATCH')
+
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, status=status.HTTP_200_OK)
